@@ -1,0 +1,102 @@
+@import url();
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%; /*de esta manera va ocupando el 100 de nuestra pagina*/
+}
+ 
+body {
+    font-family: "Public Sans", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+}
+
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center ;
+}
+
+.header {
+    grid-area: header;
+    background-color: #4ffa00;
+}
+
+.navbar {
+    grid-area: navbar;
+    background-color: #ffff00;
+}
+
+.main {
+    grid-area: main;
+    background-color: #aae2d5;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #00f2ff;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: orangered;
+}
+/*diseño para telefono*/
+.grid-container {
+    display: grid;
+    gap: 12px; /*separacion de cajetillas */
+    grid-template: 
+    /*aras iguales (grid-template-areas:)*/
+    /*areas personalizables (grid-template:)*/
+        "header"  100px
+        "navbar"  50px
+        "main"    auto
+        "sidebar" 100px
+        "footer"  100px; 
+        /*en esta área, si uno quisiera mover a otro lado 
+        los elementos, simplemente con quitar el nombre de 
+        donde está y moverlo, es suficiente para que
+        se visualice*/
+}
+/*diseño para telefono*/
+
+/*diseño para tablet*/
+@media (min-width: 750px) {
+    .grid-container {
+        /*grid-template-columns: 460px auto;
+        grid-template-rows: 140px /*header*/ /*50px /*navbar*/ /*auto /*main y sidebar*/ /*100px;/*footer*/
+        /*grid-template-areas: 
+        "header header"
+        "navbar navbar"
+        "main   sidebar"
+        "footer footer";
+        */
+        
+    grid-template: 
+        "header header"  140px
+        "navbar navbar"  50px
+        "sidebar main" auto
+        "footer footer"  100px /
+        200px   auto; 
+    }
+}
+/*diseño para tablet*/
+
+/*diseño para computadora escritorio*/
+@media (min-width: 900px) {
+    .grid-container {
+     grid-template: 
+      "header header header"  140px
+      "navbar navbar navbar"  100px
+      "main main sidebar" auto
+      "footer footer footer" 100px /
+      200px  auto 200px;  
+    }
+}
+/*diseño para computadora escritorio*/
